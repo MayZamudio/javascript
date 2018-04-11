@@ -1,6 +1,7 @@
-var myHistory = "I come from the retail industy and am looking to change industries";
-console.log(myHistory);
-var myValue = confirm(myHistory);
-console.log(myValue);
 
-// capture the ture/false
+
+//Take home hobby and
+var myHobby = "I love to watch re-runs of Big Bang Theory with my 10 year old daughter.";
+console.log(myHobby);
+var myValue = confirm(myHobby);
+console.log(myValue)
