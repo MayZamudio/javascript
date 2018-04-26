@@ -1,3 +1,4 @@
+
 //Method, type of function
 console.log("Hello World!")
 // You call a function and the function returns a value (printed string in the console)
@@ -89,3 +90,4 @@ console.log(tasks);
 
 
 //Finally, alert all the tasks that are marked done in the todo array.
+
