@@ -1,3 +1,4 @@
+
 function squareCalculator(number) {
   return number ** 2;
 };
