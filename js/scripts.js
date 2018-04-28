@@ -1,93 +1,72 @@
 
-//Method, type of function
-console.log("Hello World!")
-// You call a function and the function returns a value (printed string in the console)
-
-function sayHello(name, greeting){
-  return `Hello ${name}, ${greeting}!`;
-}
-
-let myGreeting = sayHello("Humanoid","You're the best!");
-
-alert(myGreeting);
-
-//Take home assignment
-
-let messageToUser;
-
-function prompt_task(iteration) {
-  let task_name = prompt("Task "+iteration+" name?");
-  let task_duration;
-  do {
-    task_duration = prompt("How many days?");
-  }
-while (isNaN(task_duration));
-  //Check if valid data
-  // if task_duration is a number
-  // if task_duration is a date, etc
-  task_array = [task_name, task_duration];
-  return task_array;
+function squareCalculator(number) {
+  return number ** 2;
 };
 
-let tasks = [];
-let task_number = 3;
-for ( let i = 0; i < task_number; i++) {
-  task = prompt_task(i+1);
-  tasks.push(task);
-};
-
-document.write(tasks);
-console.log(tasks);
-
-let longest_task = ['',0];
-let i = 0;
-while ( i < tasks.length) {
-  if (tasks[i][1] > longest_task[1]) {
-    longest_task = tasks[i];
+function askUser(prompt_text) {//FUNCTION DEFINITION
+  let number = parseInt(prompt(prompt_text, ''));//
+  //alert(!isNaN(number));
+  if(!isNaN(number)) { //if the number they gave us IS a number...
+    alert(squareCalculator(number));//FUNCTION IS CALLED IF IT IS A NUMBER
+  } else {
+    let alt_text = "Come on! Give me a digit!";//DEFINING A VARIABLE
+    askUser(alt_text);//FUNCTION IS CALLED IF ITS NOT A NUMBER
   };
-  i++;
 };
 
-console.log(longest_task);
+let text = "Give me a number.";
+askUser(text);
 
-i = 0;
-do {
-  if (tasks[i] != longest_task) {
-    tasks[i].push('Done');
+//capitalize the first letter of a string and add a period (.) to the end of the string if it doesn't already end with a period
+let name = prompt("What is your name?");
+
+function firstLetterCapital(string){
+  let firstLetter = string.charAt(0);
+  let uppercaseFirstLetter = string.charAt(0).toUpperCase();
+  let stringWithoutFirstLetter = string.slice(1);
+  let result = uppercaseFirstLetter + stringWithoutFirstLetter;
+  if(string[string.length - 1] != '.') {
+    result += ".";
   }
-  i++;
+  return result;
+};
+
+let tm = firstLetterCapital(name);
+console.log(tm);
+
+//Create a string that will flip the position of the first and second half of a string. For example, the string “abcdef” would be returned as “defabc”. Hint: use substring.
+//get the lenght of the string, divide by 2 and store somewhere
+let flipTest = Math.ceil((tm.length -1)/2);
+console.log(flipTest);
+let subTest = tm.substring(flipTest);
+let firsthalf = tm.substring(0, flipTest);
+console.log(subTest + firsthalf);
+
+//BONUS: If you are bored by all that, write a function that checks if a given string is a palindrome.
+
+let userAnswer = prompt("Let's Check your palindrome eg: race car");
+function reverseString(userAnswer) {
+    // Step 1. Use the split() method to return a new array
+    var splitString = userAnswer.split(""); // var splitString = "hello".split("");
+    // ["h", "e", "l", "l", "o"]
+
+    // Step 2. Use the reverse() method to reverse the new created array
+    var reverseArray = splitString.reverse(); // var reverseArray = ["h", "e", "l", "l", "o"].reverse();
+    // ["o", "l", "l", "e", "h"]
+
+    // Step 3. Use the join() method to join all elements of the array into a string
+    var joinArray = reverseArray.join(""); // var joinArray = ["o", "l", "l", "e", "h"].join("");
+    // "olleh"
+
+    //Step 4. Return the reversed string
+    return joinArray; // "olleh"
 }
-while ( i < tasks.length);
 
-console.log(tasks);
-//Creates an array of things you need or want to do this weekend by collecting three todos from the user.
-// let tasks = [];
-// //Using a for loop, change the items in the array by adding days they should be completed by to each index.
-// //Hint: which data type is best suited for your todo items?
-// let taskOne = [];
-// let taskOne_name = prompt('What do you need to do!');
-// let taskOne_duration = prompt('In how many days?');
-// let taskTwo = [];
-// let taskTwo_name = prompt('What else do you need to do!');
-// let taskTwo_duration = prompt('In how many days?');
-// let taskThree = [];
-// let taskThree_name = prompt('And one more... What do you need to do!');
-// let taskThree_duration = prompt('In how many days?');
-//
-// taskOne.push(taskOne_name, taskOne_duration);
-// taskTwo.push(taskTwo_name, taskTwo_duration);
-// taskThree.push(taskThree_name, taskThree_duration);
-// tasks.push(taskOne, taskTwo, taskThree);
-//
-// console.log(tasks);
-//
+reverseString(userAnswer);
+console.log(reverseString(userAnswer));
 
-
-//Using a while loop, find the task that will take the longest and log it to the console.
-
-
-//Using a do while loop, add the string 'done' to all the tasks other than the one that will take the longest
-
-
-//Finally, alert all the tasks that are marked done in the todo array.
-
+if(userAnswer === reverseString(userAnswer)){
+  alert("Good");
+}else {
+  alert("Bad");
+};
